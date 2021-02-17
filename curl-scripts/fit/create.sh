@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/fits"
+URL_PATH="/fit"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -12,7 +12,7 @@ curl "${API}${URL_PATH}" \
     "fit": {
       "name": "'"${NAME}"'",
       "brand": "'"${BRAND}"'",
-      "site": "'"${SITE}"'",
+      "site": "'"${SITE}"'"
     }
   }'
 
