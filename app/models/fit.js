@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
 const fitSchema = new mongoose.Schema({
-  title: {
+  name: {
     type: String,
     required: true
   },
-  text: {
+  brand: {
     type: String,
     required: true
   },
-  owner: {
+  site: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
