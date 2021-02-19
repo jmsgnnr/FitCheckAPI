@@ -16,10 +16,20 @@ const fitSchema = new mongoose.Schema({
 
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: {
+    transform: (_doc, fit) => {
+      return {
+        id: fit._id,
+        name: fit.name,
+        brand: fit.brand,
+        site: fit.site
+      }
+    }
+  }
 })
 
 module.exports = mongoose.model('Fit', fitSchema)
