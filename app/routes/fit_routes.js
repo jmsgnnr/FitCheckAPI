@@ -3,7 +3,7 @@ const express = require('express')
 const passport = require('passport')
 
 // pull in Mongoose model for fits
-const Fit = require('../models/fit')
+const Fit = require('../models/fit.js')
 
 // this is a collection of methods that help us detect situations when we need
 // to throw a custom error
@@ -29,7 +29,7 @@ const router = express.Router()
 // INDEX
 // GET /fits
 router.get('/fits', requireToken, (req, res, next) => {
-  Fit.find()
+  Fit.find(req.user._id)
     .then(fits => {
       // `fits` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
@@ -56,7 +56,7 @@ router.get('/fits/:id', requireToken, (req, res, next) => {
 
 // CREATE
 // POST /fits
-router.post('/fits', requireToken, (req, res, next) => {
+router.post('/fits/', requireToken, (req, res, next) => {
   // set owner of new fit to be current user
   req.body.fit.owner = req.user.id
 
