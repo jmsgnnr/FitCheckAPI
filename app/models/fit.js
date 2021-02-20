@@ -13,10 +13,14 @@ const fitSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  photo: {
+    type: String,
+    required: false
+  },
 
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'User'
   }
 }, {
   timestamps: true,
