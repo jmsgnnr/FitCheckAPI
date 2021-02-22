@@ -14,8 +14,7 @@ const fitSchema = new mongoose.Schema({
     required: true
   },
   photo: {
-    type: String,
-    required: false
+    type: String
   },
 
   owner: {
@@ -30,7 +29,8 @@ const fitSchema = new mongoose.Schema({
         id: fit._id,
         name: fit.name,
         brand: fit.brand,
-        site: fit.site
+        site: fit.site,
+        photo: fit.photo
       }
     }
   }
